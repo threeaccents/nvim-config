@@ -54,7 +54,7 @@ keymap("n", "<leader>r", "<cmd>lua require('spectre.actions').run_replace()<CR>"
 -- Copilot rempaps
 keymap("n", "<leader>cc", ":CopilotChat<CR>", opts)
 keymap("v", "<leader>cc", ":CopilotChat<CR>", opts)
-keymap("i", "`", ":Copilot#accept<CR>", opts)
+keymap("i", "aa", 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true })
 
 -- disable arrow keys in all modes
 for _, key in ipairs({ "<Up>", "<Down>", "<Left>", "<Right>" }) do
