@@ -68,12 +68,19 @@ return require('packer').startup(function(use)
   }
 
   -- AI
-  use "github/copilot.vim"
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+  }
   use {
     'CopilotC-Nvim/CopilotChat.nvim',
     requires = {
-      { 'github/copilot.vim' },    -- or 'zbirenbaum/copilot.lua' if using Lua Copilot
-      { 'nvim-lua/plenary.nvim' }, -- Required dependency
+      { 'zbirenbaum/copilot.lua' }, -- or 'zbirenbaum/copilot.lua' if using Lua Copilot
+      { 'nvim-lua/plenary.nvim' },  -- Required dependency
     },
     config = function()
       require("CopilotChat").setup()
